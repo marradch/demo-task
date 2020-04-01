@@ -142,4 +142,3 @@ class TaskManager extends AbstractManager
         return $items;
     }
 }
-

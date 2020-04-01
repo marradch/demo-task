@@ -18,4 +18,3 @@ class UserManager extends AbstractManager
         return false;
     }
 }
-

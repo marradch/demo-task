@@ -4,7 +4,6 @@ namespace Models;
 
 class TaskModel extends AbstractModel
 {
-
     public $name;
     public $email;
     public $content;
@@ -52,5 +51,4 @@ class TaskModel extends AbstractModel
             throw new Exception("Не удалось выполнить запрос: (" . $stmt->errno . ") " . $stmt->error);
         }
     }
-
 }
