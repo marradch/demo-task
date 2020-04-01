@@ -49,13 +49,14 @@ class TaskManager extends AbstractManager
         $request_string = "SELECT id, name, email, content, status FROM tasks";
 
         $order = '';
+        $availableOrders = ['name', 'email', 'status'];
 
-        if (!empty($params['order'])) {
-            $order = ' ORDER BY ' . $params['order'] . ' ' . $params['order-type'];
+        if (!empty($params['order']) && in_array($params['order'], $availableOrders)) {
+            $orderType = ($params['order-type'] == 'desc') ? 'desc' : 'asc';
+            $order = ' ORDER BY ' . $params['order'] . ' ' . $orderType;
         }
 
         $stmt = $this->dbConnection->getConnection()->prepare($request_string . $order . $limit);
-
         $stmt->execute();
         $stmt->bind_result($id, $name, $email, $content, $status);
 
