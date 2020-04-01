@@ -1,12 +1,11 @@
 <?php
 
-namespace Models;
+namespace Managers;
 
 use Database\DatabaseConnection;
 
-abstract class AbstractModel
+abstract class AbstractManager
 {
-
     protected $dbConnection;
 
     public function __construct()
