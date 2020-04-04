@@ -1,11 +1,11 @@
 <?php
 
-namespace Managers;
+namespace Repositories;
 
 use Helpers\UrlHelper;
 use Models\TaskModel;
 
-class TaskManager extends AbstractManager
+class TaskRepository extends AbstractRepository
 {
     public function getByUid($uid)
     {

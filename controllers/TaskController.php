@@ -3,7 +3,7 @@
 namespace Controllers;
 
 use Models\TaskModel;
-use Managers\TaskManager;
+use Repositories\TaskRepository;
 
 class TaskController extends AbstractController
 {
@@ -11,9 +11,9 @@ class TaskController extends AbstractController
 
     public function index($params)
     {
-        $taskManager = new TaskManager();
-        $tasks = $taskManager->getAll($params);
-        $pagination = $taskManager->getPagination($params);
+        $taskRepository = new TaskRepository();
+        $tasks = $taskRepository->getAll($params);
+        $pagination = $taskRepository->getPagination($params);
 
         $this->render(
             'index',
@@ -63,8 +63,8 @@ class TaskController extends AbstractController
 
     public function edit($params)
     {
-        $taskManager = new TaskManager();
-        $task = $taskManager->getByUid($params['id']);
+        $taskRepository = new TaskRepository();
+        $task = $taskRepository->getByUid($params['id']);
         if (!$task) {
             throw new Exception("Task not found by Id: (" . $params['id'] . ") ");
         }
@@ -80,8 +80,8 @@ class TaskController extends AbstractController
 
     public function update()
     {
-        $taskManager = new TaskManager();
-        $task = $taskManager->getByUid($_POST['id']);
+        $taskRepository = new TaskRepository();
+        $task = $taskRepository->getByUid($_POST['id']);
         if (!$task) {
             throw new Exception("Task not found by Id: (" . $_POST['id'] . ") ");
         }

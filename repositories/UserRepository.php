@@ -1,10 +1,10 @@
 <?php
 
-namespace Managers;
+namespace Repositories;
 
 use Models\UserModel;
 
-class UserManager extends AbstractManager
+class UserRepository extends AbstractRepository
 {
     public static function getByName($name)
     {

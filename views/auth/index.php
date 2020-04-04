@@ -1,7 +1,7 @@
 <h1>Log In</h1>
 <hr>
 
-<?php if(count($errors)):?>
+<?php if($errors && count($errors)):?>
 <div class="alert alert-danger">
 	<?php foreach($errors as $error):?>
 		<p>- <?php echo $error; ?></p>

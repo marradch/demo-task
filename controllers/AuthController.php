@@ -2,7 +2,7 @@
 
 namespace Controllers;
 
-use Managers\UserManager;
+use Repositories\UserRepository;
 
 class AuthController extends AbstractController
 {
@@ -31,7 +31,7 @@ class AuthController extends AbstractController
         }
 
         if (!count($errors)) {
-            $user = UserManager::getByName($_POST['name']);
+            $user = UserRepository::getByName($_POST['name']);
             if ($user) {
                 if ($user->password == md5($_POST['password'])) {
                     $_SESSION['user'] = $_POST['name'];

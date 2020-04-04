@@ -1,10 +1,10 @@
 <?php
 
-namespace Managers;
+namespace Repositories;
 
 use Database\DatabaseConnection;
 
-abstract class AbstractManager
+abstract class AbstractRepository
 {
     protected $dbConnection;
 
